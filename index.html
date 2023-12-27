@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        window.onload = (event) => {
+            let text = window.location.search.split("?")[1];
+            text = text.replace("%20", " ");
+            let elem = document.getElementById("marquee_text");
+            elem.innerText = text;
+        };
+    </script>
+    <style>
+        #marquee {
+            position: relative;
+            display: flex;
+            width: 100%;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        #marquee_text {
+            flex-shrink: 0;
+            display: flex;
+            justify-content: end;
+            min-width: 100%;
+            animation: scroll 10s linear infinite;
+        }
+
+
+        @keyframes scroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyMarquee</title>
+</head>
+
+<body>
+    <div id="marquee">
+        <div id="marquee_text">
+        SAMPLE TEXT
+        </div>
+    </div>
+</body>
+
+</html>
